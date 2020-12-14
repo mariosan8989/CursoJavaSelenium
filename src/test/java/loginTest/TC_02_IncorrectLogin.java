@@ -6,6 +6,7 @@ import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
+import comonMetodos.ComonMetdos;
 import driverSeptup.DriverSetup;
 import globalVarialbes.GlobalVariables;
 import navigationPages.LoginPage;
@@ -34,6 +35,7 @@ public class TC_02_IncorrectLogin {
   @AfterTest
   public void closeDriver()
   {
+	  ComonMetdos.takeScreenshot(driver, "TC_02_IcorrectLogin");
 	  driver.quit();
   }
 }

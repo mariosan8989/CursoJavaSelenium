@@ -5,6 +5,7 @@ import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
+import comonMetodos.ComonMetdos;
 import driverSeptup.DriverSetup;
 import globalVarialbes.GlobalVariables;
 import navigationPages.LoginPage;
@@ -37,6 +38,7 @@ public class TC_03_Logout {
   @AfterTest
   public void closeDriver()
   {
+	  ComonMetdos.takeScreenshot(driver, "TC_03_Logout");
 	  driver.quit();
   }
 }

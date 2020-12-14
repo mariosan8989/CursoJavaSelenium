@@ -3,20 +3,19 @@ package loginTest;
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
+import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
-import comonMetodos.ComonMetdos;
 import driverSeptup.DriverSetup;
 import globalVarialbes.GlobalVariables;
 import navigationPages.LoginPage;
 
-public class TC_01CorrectLogin {
+public class TC_04CorrectLoginParameters {
 	// declarar e inicializar un objeto del tipo driver 
 	WebDriver driver = DriverSetup.setupDriver();
 	
 	//Login PageObject
 	LoginPage login = new LoginPage(driver);
-	
 	
 	@BeforeTest
 	public void starWebDriver()
@@ -27,14 +26,14 @@ public class TC_01CorrectLogin {
 	}
 	
   @Test
-  public void TC_01() {
+  @Parameters({"user","password"})
+  public void TC_01(String user, String password) {
 	  //Step 1 : Login
-	  login.login(GlobalVariables.USER_ADMIN, GlobalVariables.PASSWORD_ADMIN);
+	  login.login(user, password);
   }
   @AfterTest
   public void closeDriver()
   {
-	  ComonMetdos.takeScreenshot(driver, "TC_01CorrectLogin");
 	  driver.quit();
   }
   
